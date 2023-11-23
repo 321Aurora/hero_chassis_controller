@@ -1,0 +1,20 @@
+wheel1_pid: 
+  p: 1.0
+  i: 0.1
+  d: 0.01
+
+wheel2_pid:
+  p: 1.2
+  i: 0.15
+  d: 0.02
+
+wheel3_pid:
+  p: 0.8
+  i: 0.08
+  d: 0.008
+
+wheel4_pid:
+  p: 1.5
+  i: 0.2
+  d: 0.025
+

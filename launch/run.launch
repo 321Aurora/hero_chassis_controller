@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <include file="$(find rm_description)/launch/hero.launch">
+    <arg name="load_chassis" value="true"/>
+    <arg name="roller_type" value="realistic"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+  <rosparam file="$(find hero_chassis_controller)/config/pid_config.yaml" command="load"/>
+  <rosparam file="$(find hero_chassis_controller)/config/wheel_config.yaml" command="load"/>
+  
+  <!-- load the controllers -->
+  
+  <node name="pid_control" pkg="hero_chassis_controller" type="pid_control" 
+        output="screen" />
+  <node name="wheel_speed_calculator" pkg="hero_chassis_controller" type="wheel_speed_calculator"  />
+  <node name="odometry_publisher" pkg="hero_chassis_controller" type="odometry_publisher"  />
+  
+  <node name="tf_transformer" pkg="hero_chassis_controller" type="tf_transformer" output="screen">
+  
+ 
+
+  <!-- 设置底盘坐标系和全局坐标系 -->
+  <param name="/velocity_transformer_node/base_frame" type="string" value="base_link"/>
+  <param name="/velocity_transformer_node/global_frame" type="string" value="odom"/>
+  <!-- 设置是否使用逆运动学 -->
+  <param name="/velocity_transformer_node/use_inverse_kinematics" type="bool" value="false"/>
+    </node>
+
+  
+</launch>
