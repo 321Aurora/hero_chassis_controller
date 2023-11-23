@@ -71,7 +71,7 @@ rule CXX_EXECUTABLE_LINKER__odometry_publisher_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__tf_transformer_unscanned_Debug
+rule CXX_COMPILER__velocity_transformer_node_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = /usr/bin/c++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -81,7 +81,7 @@ rule CXX_COMPILER__tf_transformer_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__tf_transformer_Debug
+rule CXX_EXECUTABLE_LINKER__velocity_transformer_node_Debug
   command = $PRE_LINK && /usr/bin/c++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT

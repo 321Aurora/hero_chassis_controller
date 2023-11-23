@@ -4,7 +4,7 @@
 #include <std_msgs/Bool.h>
 #include <cmath>
 #include <tf/transform_listener.h>
-#include <tf/transform_datatypes.h>
+#include <tf/transform_broadcaster.h>
 
 class MecanumWheelSpeedCalculator {
 public:
@@ -107,6 +107,9 @@ public:
 
         // 订阅用于切换速度模式的参数
         use_inverse_kinematics_param_sub_ = nh_.subscribe("/use_inverse_kinematics_param", 1, &VelocityTransformer::updateInverseKinematicsParam, this);
+
+        // 初始化TF广播器
+        tf_broadcaster_ = new tf::TransformBroadcaster();
     }
 
     void cmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_vel_msg) {
@@ -131,29 +134,39 @@ public:
     }
 
     bool transformVelocity(const geometry_msgs::Twist::ConstPtr& cmd_vel_msg, geometry_msgs::Twist& base_cmd_vel) {
-        tf::TransformListener listener;
+        tf::TransformListener tf_listener;
         tf::StampedTransform transform;
+
+        ros::Time current_time = ros::Time::now();
+
         try {
-            listener.waitForTransform(global_frame_, base_frame_, ros::Time(0), ros::Duration(3.0));
-            listener.lookupTransform(global_frame_, base_frame_, ros::Time(0), transform);
+            // 检查变换是否可用
+            if (!tf_listener.waitForTransform(global_frame_, base_frame_, current_time, ros::Duration(5.0))) {
+                ROS_WARN("无法从 %s 转换到 %s", global_frame_.c_str(), base_frame_.c_str());
+                return false;
+            }
+
+            // 获取变换
+            tf_listener.lookupTransform(global_frame_, base_frame_, current_time, transform);
+
+            // 转换线性速度
+            tf::Vector3 linear_vel(cmd_vel_msg->linear.x, cmd_vel_msg->linear.y, cmd_vel_msg->linear.z);
+            linear_vel = transform.getBasis() * linear_vel;
+            base_cmd_vel.linear.x = linear_vel.x();
+            base_cmd_vel.linear.y = linear_vel.y();
+            base_cmd_vel.linear.z = linear_vel.z();
+
+            // 转换角速度
+            tf::Vector3 angular_vel(cmd_vel_msg->angular.x, cmd_vel_msg->angular.y, cmd_vel_msg->angular.z);
+            angular_vel = transform.getBasis() * angular_vel;
+            base_cmd_vel.angular.x = angular_vel.x();
+            base_cmd_vel.angular.y = angular_vel.y();
+            base_cmd_vel.angular.z = angular_vel.z();
+
         } catch (tf::TransformException& ex) {
             ROS_ERROR("%s", ex.what());
             return false;
         }
-
-        // 转换线速度
-        tf::Vector3 linear_vel(cmd_vel_msg->linear.x, cmd_vel_msg->linear.y, cmd_vel_msg->linear.z);
-        linear_vel = transform.getBasis() * linear_vel;
-        base_cmd_vel.linear.x = linear_vel.x();
-        base_cmd_vel.linear.y = linear_vel.y();
-        base_cmd_vel.linear.z = linear_vel.z();
-
-        // 转换角速度
-        tf::Vector3 angular_vel(cmd_vel_msg->angular.x, cmd_vel_msg->angular.y, cmd_vel_msg->angular.z);
-        angular_vel = transform.getBasis() * angular_vel;
-        base_cmd_vel.angular.x = angular_vel.x();
-        base_cmd_vel.angular.y = angular_vel.y();
-        base_cmd_vel.angular.z = angular_vel.z();
 
         return true;
     }
@@ -164,6 +177,9 @@ public:
 
         // 发布期望速度
         mecanum_wheel_speed_calculator_->publishWheelSpeeds();
+
+        // 发布 "odom" 到 "base_link" 的坐标变换
+        publishOdomToBaseLinkTransform();
     }
 
     void calculateWheelVelocities(const geometry_msgs::Twist& base_cmd_vel) {
@@ -173,6 +189,21 @@ public:
 
         // 发布期望速度
         mecanum_wheel_speed_calculator_->publishWheelSpeeds();
+
+        // 发布 "odom" 到 "base_link" 的坐标变换
+        publishOdomToBaseLinkTransform();
+    }
+
+    void publishOdomToBaseLinkTransform() {
+        // 获取 "odom" 到 "base_link" 的坐标变换
+        tf::Transform transform;
+        transform.setOrigin(tf::Vector3(0.0, 0.0, 0.0));
+        tf::Quaternion quat;
+        quat.setRPY(0, 0, 0);
+        transform.setRotation(quat);
+
+        // 发布坐标变换
+        tf_broadcaster_->sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "base_link"));
     }
 
 private:
@@ -184,6 +215,7 @@ private:
     bool use_inverse_kinematics_;
     MecanumWheelSpeedCalculator* mecanum_wheel_speed_calculator_;
     ros::Subscriber use_inverse_kinematics_param_sub_;
+    tf::TransformBroadcaster* tf_broadcaster_;
 };
 
 int main(int argc, char** argv) {
@@ -192,3 +224,4 @@ int main(int argc, char** argv) {
     ros::spin();
     return 0;
 }
+

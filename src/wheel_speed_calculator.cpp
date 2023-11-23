@@ -10,6 +10,7 @@ public:
         ros::NodeHandle nh("~");
         nh.param<double>("wheelbase", wheelbase, 0.5);  // 轴距
         nh.param<double>("track", track, 0.3);           // 轮距
+        nh.param<std::string>("base_frame", base_frame, "base_link");  // 底盘坐标系
 
         // 订阅速度指令
         twist_sub = nh.subscribe("/cmd_vel", 10, &MecanumWheelSpeedCalculator::twistCallback, this);
@@ -55,6 +56,7 @@ private:
     ros::Publisher front_left_wheel_pub, front_right_wheel_pub, rear_left_wheel_pub, rear_right_wheel_pub;
     double wheelbase;  // 轴距
     double track;      // 轮距
+    std::string base_frame;  // 底盘坐标系
 };
 
 int main(int argc, char** argv) {

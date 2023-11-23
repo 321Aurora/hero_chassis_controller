@@ -2,9 +2,8 @@
 #include "std_msgs/Header.h"
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Twist.h"
-#include "tf2/LinearMath/Quaternion.h"
-#include "tf2_ros/transform_broadcaster.h"
-#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
+#include "tf/transform_broadcaster.h"
+#include "tf/LinearMath/Quaternion.h"
 
 class OdometryPublisher {
 public:
@@ -52,23 +51,18 @@ public:
         odom.pose.pose.position.y = y;
         odom.pose.pose.position.z = 0.0;
 
-        tf2::Quaternion quat;
+        tf::Quaternion quat;
         quat.setRPY(0, 0, theta);
-        odom.pose.pose.orientation = tf2::toMsg(quat);
+        tf::quaternionTFToMsg(quat, odom.pose.pose.orientation);
 
         odom_pub.publish(odom);
 
         // 发布坐标变换关系
-        geometry_msgs::TransformStamped odom_trans;
-        odom_trans.header.stamp = current_time;
-        odom_trans.header.frame_id = odom_frame;
-        odom_trans.child_frame_id = base_frame;
-        odom_trans.transform.translation.x = x;
-        odom_trans.transform.translation.y = y;
-        odom_trans.transform.translation.z = 0.0;
-        odom_trans.transform.rotation = tf2::toMsg(quat);
-
-        tf_broadcaster.sendTransform(odom_trans);
+        static tf::TransformBroadcaster br;
+        tf::Transform transform;
+        transform.setOrigin(tf::Vector3(x, y, 0.0));
+        transform.setRotation(quat);
+        br.sendTransform(tf::StampedTransform(transform, current_time, odom_frame, base_frame));
 
         last_time = current_time;
     }
@@ -77,7 +71,6 @@ private:
     ros::NodeHandle nh;
     ros::Subscriber cmd_vel_sub;
     ros::Publisher odom_pub;
-    tf2_ros::TransformBroadcaster tf_broadcaster;
 
     std::string odom_frame;
     std::string base_frame;
@@ -92,3 +85,4 @@ int main(int argc, char** argv) {
     ros::spin();
     return 0;
 }
+

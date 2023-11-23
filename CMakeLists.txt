@@ -50,9 +50,10 @@ catkin_package(
     hardware_interface
     forward_command_controller
     pluginlib
-    DEPENDS
     tf
     std_msgs
+    DEPENDS
+    
 )
 
 ###########
@@ -126,16 +127,14 @@ include_directories(
 add_executable(pid_control ./src/pid_control.cpp)
 add_executable(wheel_speed_calculator ./src/wheel_speed_calculator.cpp)
 add_executable(odometry_publisher ./src/odometry_publisher.cpp)
- add_executable(tf_transformer ./src/tf_transformer.cpp)
+ add_executable(velocity_transformer_node ./src/velocity_transformer_node.cpp)
 target_link_libraries(pid_control ${catkin_LIBRARIES})
 target_link_libraries(wheel_speed_calculator ${catkin_LIBRARIES})
 target_link_libraries(odometry_publisher ${catkin_LIBRARIES} )
- target_link_libraries(tf_transformer ${catkin_LIBRARIES})
-
+ target_link_libraries(velocity_transformer_node ${catkin_LIBRARIES})
 target_link_libraries(pid_control ${catkin_LIBRARIES}  yaml-cpp)
 
 
 
 
 
-roslint_cpp()

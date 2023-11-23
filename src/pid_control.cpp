@@ -13,7 +13,9 @@ struct PIDParams {
 
 PIDParams loadPIDParams(const std::string& config_file, const std::string& pid_name) {
     try {
+        ROS_INFO("Config file path: %s", config_file.c_str());
         YAML::Node config = YAML::LoadFile(config_file);
+        ROS_INFO("Successfully loaded PID parameters from file.");
         return {config[pid_name]["p"].as<double>(),
                 config[pid_name]["i"].as<double>(),
                 config[pid_name]["d"].as<double>()};
@@ -67,7 +69,7 @@ int main(int argc, char** argv) {
     ros::NodeHandle nh;
 
     std::string config_file_path = "pid_config.yaml";
-
+  
     // 创建轮子控制器
     std::map<std::string, WheelController> wheel_controllers;
     wheel_controllers.emplace(std::piecewise_construct,
@@ -84,7 +86,7 @@ int main(int argc, char** argv) {
                               std::forward_as_tuple(loadPIDParams(config_file_path, "wheel4_pid"), nh, "wheel4"));
 
     // 在一个循环中运行 PID 控制
-    for (int i = 0; i < 100; ++i) {
+    for (int i = 0; i < 10000; ++i) {
         double setpoint = 10.0;
 
         for (auto& kv : wheel_controllers) {
