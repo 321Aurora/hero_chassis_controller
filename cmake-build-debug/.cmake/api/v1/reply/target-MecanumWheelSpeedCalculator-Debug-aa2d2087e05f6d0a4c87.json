@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "devel/lib/hero_chassis_controller/velocity_transformer_node"
+			"path" : "devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator"
 		}
 	],
 	"backtrace" : 1,
@@ -36,13 +36,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 130,
+				"line" : 133,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 134,
+				"line" : 136,
 				"parent" : 0
 			},
 			{
@@ -122,7 +122,7 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 65,
+				"line" : 70,
 				"parent" : 0
 			}
 		]
@@ -133,7 +133,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always   -Wall -Werror"
 				}
 			],
 			"defines" : 
@@ -153,6 +153,10 @@
 			],
 			"includes" : 
 			[
+				{
+					"backtrace" : 17,
+					"path" : "/home/aurora/catkin_ws/src/hero_chassis_controller/include"
+				},
 				{
 					"backtrace" : 17,
 					"path" : "/opt/ros/noetic/include"
@@ -177,7 +181,7 @@
 			]
 		}
 	],
-	"id" : "velocity_transformer_node::@6890427a1f51a3e7e1df",
+	"id" : "MecanumWheelSpeedCalculator::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -207,6 +211,16 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/ros/noetic/lib/libcontroller_manager.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/ros/noetic/lib/libjoint_state_controller.so",
 				"role" : "libraries"
 			},
 			{
@@ -367,8 +381,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "velocity_transformer_node",
-	"nameOnDisk" : "velocity_transformer_node",
+	"name" : "MecanumWheelSpeedCalculator",
+	"nameOnDisk" : "MecanumWheelSpeedCalculator",
 	"paths" : 
 	{
 		"build" : ".",
@@ -389,7 +403,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/velocity_transformer_node.cpp",
+			"path" : "src/MecanumWheelSpeedCalculator.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

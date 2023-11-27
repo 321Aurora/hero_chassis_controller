@@ -761,6 +761,14 @@
 		},
 		{
 			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/controller_manager/cmake/controller_managerConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/controller_manager/cmake/controller_managerConfig.cmake"
+		},
+		{
+			"isExternal" : true,
 			"path" : "/opt/ros/noetic/share/controller_interface/cmake/controller_interfaceConfig-version.cmake"
 		},
 		{
@@ -777,19 +785,15 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/hardware_interface/cmake/hardware_interfaceConfig-version.cmake"
+			"path" : "/opt/ros/noetic/share/controller_manager_msgs/cmake/controller_manager_msgsConfig-version.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/hardware_interface/cmake/hardware_interfaceConfig.cmake"
+			"path" : "/opt/ros/noetic/share/controller_manager_msgs/cmake/controller_manager_msgsConfig.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/forward_command_controller/cmake/forward_command_controllerConfig-version.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/forward_command_controller/cmake/forward_command_controllerConfig.cmake"
+			"path" : "/opt/ros/noetic/share/controller_manager_msgs/cmake/controller_manager_msgs-msg-extras.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -830,6 +834,58 @@
 		{
 			"isExternal" : true,
 			"path" : "/opt/ros/noetic/share/roslib/cmake/roslib-extras.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/controller_interface/cmake/controller_interfaceConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/controller_interface/cmake/controller_interfaceConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/hardware_interface/cmake/hardware_interfaceConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/hardware_interface/cmake/hardware_interfaceConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/joint_state_controller/cmake/joint_state_controllerConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/joint_state_controller/cmake/joint_state_controllerConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgsConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgsConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgs-msg-extras.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/forward_command_controller/cmake/forward_command_controllerConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/forward_command_controller/cmake/forward_command_controllerConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/pluginlib/cmake/pluginlibConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/noetic/share/pluginlib/cmake/pluginlibConfig.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -946,18 +1002,6 @@
 		{
 			"isExternal" : true,
 			"path" : "/opt/ros/noetic/share/tf/cmake/tfConfig.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgsConfig-version.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgsConfig.cmake"
-		},
-		{
-			"isExternal" : true,
-			"path" : "/opt/ros/noetic/share/sensor_msgs/cmake/sensor_msgs-msg-extras.cmake"
 		},
 		{
 			"isExternal" : true,

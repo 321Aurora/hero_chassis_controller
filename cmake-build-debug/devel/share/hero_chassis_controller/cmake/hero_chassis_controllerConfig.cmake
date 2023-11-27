@@ -185,7 +185,7 @@ foreach(t ${hero_chassis_controller_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;tf2;tf2_ros;control_toolbox;roslint;controller_interface;hardware_interface;forward_command_controller;pluginlib;tf;std_msgs")
+set(depends "roscpp;tf2;tf2_ros;control_toolbox;roslint;controller_manager;controller_interface;hardware_interface;joint_state_controller;forward_command_controller;pluginlib;tf;std_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

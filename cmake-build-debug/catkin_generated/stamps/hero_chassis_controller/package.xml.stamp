@@ -13,7 +13,7 @@
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>BSD</license>
+  <license>TODO</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
@@ -73,14 +73,20 @@
   <exec_depend>tf2</exec_depend>
   <exec_depend>tf</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
- <depend>roslint</depend>
+  <depend>roslint</depend>
   <depend>controller_interface</depend>
+  <depend>controller_manager</depend>
   <depend>hardware_interface</depend>
+  <depend>joint_state_controller</depend>
   <depend>forward_command_controller</depend>
   <depend>pluginlib</depend>
   <depend>rm_description</depend>
   
-<export>
+ 
+
+
+  
+  <export>
     <controller_interface plugin="${prefix}/hero_chassis_controller_plugins.xml"/>
   </export>
   <!-- The export tag contains other, unspecified, tags -->

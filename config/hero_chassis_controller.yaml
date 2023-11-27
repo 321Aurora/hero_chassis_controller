@@ -1,0 +1,29 @@
+controller:
+  hero_chassis_controller:
+    type: hero_chassis_controller/HeroChassisController
+    wheel_params:
+      wheel_base: 0.5  # Placeholder value, replace with your actual wheel base
+      wheel_track: 0.4  # Placeholder value, replace with your actual wheel track
+    pid_params:
+      front_left_pid:
+        p: 1.0
+        i: 0.1
+        d: 0.01
+      front_right_pid:
+        p: 1.0
+        i: 0.1
+        d: 0.01
+      back_left_pid:
+        p: 1.0
+        i: 0.1
+        d: 0.01
+      back_right_pid:
+        p: 1.0
+        i: 0.1
+        d: 0.01
+    velocity_mode: "chassis"  # "chassis" or "global"
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+

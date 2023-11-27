@@ -18,3 +18,5 @@ rear_right_pid:
   i: 0.15
   d: 0.015
 
+wheelbase: 0.5
+track: 0.3

@@ -7,15 +7,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## By adding -Wall and -Werror, the compiler does not ignore warnings anymore,
 ## enforcing cleaner code.
-#add_definitions(-Wall -Werror)
+add_definitions(-Wall -Werror)
 
 ## Find catkin macros and libraries
-find_package(catkin REQUIRED  COMPONENTS
+find_package(catkin REQUIRED  
+    COMPONENTS
     roscpp
     control_toolbox
     roslint
+    controller_manager
     controller_interface
     hardware_interface
+    joint_state_controller
     forward_command_controller
     pluginlib
     geometry_msgs
@@ -41,18 +44,20 @@ catkin_package(
     ## This is only necessary because Eigen3 sets a non-standard EIGEN3_INCLUDE_DIR variable
     LIBRARIES
     CATKIN_DEPENDS
-    roscpp
-    tf2
-    tf2_ros
-    control_toolbox
-    roslint
-    controller_interface
-    hardware_interface
-    forward_command_controller
-    pluginlib
-    tf
-    std_msgs
-    DEPENDS
+     roscpp
+     tf2
+     tf2_ros
+     control_toolbox
+     roslint
+     controller_manager
+     controller_interface
+     hardware_interface
+     joint_state_controller
+     forward_command_controller
+     pluginlib
+     tf
+     std_msgs
+     DEPENDS
     
 )
 
@@ -63,23 +68,24 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  #  include
+    include
     ${catkin_INCLUDE_DIRS}
+    ${hardware_interface_INCLUDE_DIRS}
     # Set manually because Eigen sets a non standard INCLUDE DIR
 )
 
 ## Declare cpp executables
-#add_library(${PROJECT_NAME}
- #   src/${PROJECT_NAME}.cpp
-  #  )
+ add_library(${PROJECT_NAME}
+    src/${PROJECT_NAME}.cpp
+    )
 
-#add_dependencies(${PROJECT_NAME}
- #   ${catkin_EXPORTED_TARGETS}
-  #  )
+add_dependencies(${PROJECT_NAME}
+    ${catkin_EXPORTED_TARGETS}
+    )
 
-#target_link_libraries(${PROJECT_NAME}
- #   ${catkin_LIBRARIES}
-  #  )
+target_link_libraries(${PROJECT_NAME}
+    ${catkin_LIBRARIES}
+    )
 
 #############
 ## Install ##
@@ -121,20 +127,17 @@ include_directories(
 
 ##########################
 ## Static code analysis ##
-##########################
-
+##########################在 REQUIRED COMPONENTS 中，并且 catkin_package 函数中也有这个依赖项。如果没有，你可能需要添加它。
 
 add_executable(pid_control ./src/pid_control.cpp)
-add_executable(wheel_speed_calculator ./src/wheel_speed_calculator.cpp)
-add_executable(odometry_publisher ./src/odometry_publisher.cpp)
- add_executable(velocity_transformer_node ./src/velocity_transformer_node.cpp)
-target_link_libraries(pid_control ${catkin_LIBRARIES})
-target_link_libraries(wheel_speed_calculator ${catkin_LIBRARIES})
-target_link_libraries(odometry_publisher ${catkin_LIBRARIES} )
- target_link_libraries(velocity_transformer_node ${catkin_LIBRARIES})
+add_executable(MecanumWheelSpeedCalculator ./src/MecanumWheelSpeedCalculator.cpp)
+add_executable(OdometryPublisher ./src/OdometryPublisher.cpp)
+add_executable(VelocityTransformer ./src/VelocityTransformer.cpp)
+target_link_libraries(MecanumWheelSpeedCalculator ${catkin_LIBRARIES} )
+target_link_libraries(OdometryPublisher ${catkin_LIBRARIES} )
+ target_link_libraries(VelocityTransformer ${catkin_LIBRARIES})
 target_link_libraries(pid_control ${catkin_LIBRARIES}  yaml-cpp)
 
-
-
+roslint_cpp()
 
 

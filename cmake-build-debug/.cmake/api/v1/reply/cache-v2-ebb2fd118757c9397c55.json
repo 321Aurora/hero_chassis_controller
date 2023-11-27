@@ -2250,6 +2250,30 @@
 			"value" : "/opt/ros/noetic/share/controller_interface/cmake"
 		},
 		{
+			"name" : "controller_manager_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for controller_manager."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/ros/noetic/share/controller_manager/cmake"
+		},
+		{
+			"name" : "controller_manager_msgs_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for controller_manager_msgs."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/ros/noetic/share/controller_manager_msgs/cmake"
+		},
+		{
 			"name" : "cpp_common_DIR",
 			"properties" : 
 			[
@@ -2646,6 +2670,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "hero_chassis_controller_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;/opt/ros/noetic/lib/libcontrol_toolbox.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/noetic/lib/libcontroller_manager.so;general;/opt/ros/noetic/lib/libjoint_state_controller.so;general;/opt/ros/noetic/lib/librealtime_tools.so;general;/opt/ros/noetic/lib/libclass_loader.so;general;/usr/lib/x86_64-linux-gnu/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/noetic/lib/libroslib.so;general;/opt/ros/noetic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython3.8.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/noetic/lib/libtf.so;general;/opt/ros/noetic/lib/libtf2_ros.so;general;/opt/ros/noetic/lib/libactionlib.so;general;/opt/ros/noetic/lib/libmessage_filters.so;general;/opt/ros/noetic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0;general;/opt/ros/noetic/lib/libxmlrpcpp.so;general;/opt/ros/noetic/lib/libtf2.so;general;/opt/ros/noetic/lib/libroscpp_serialization.so;general;/opt/ros/noetic/lib/librosconsole.so;general;/opt/ros/noetic/lib/librosconsole_log4cxx.so;general;/opt/ros/noetic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0;general;/opt/ros/noetic/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0;general;/opt/ros/noetic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;"
+		},
+		{
 			"name" : "hero_chassis_controller_SOURCE_DIR",
 			"properties" : 
 			[
@@ -2656,6 +2692,18 @@
 			],
 			"type" : "STATIC",
 			"value" : "/home/aurora/catkin_ws/src/hero_chassis_controller"
+		},
+		{
+			"name" : "joint_state_controller_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for joint_state_controller."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/ros/noetic/share/joint_state_controller/cmake"
 		},
 		{
 			"name" : "lib",
