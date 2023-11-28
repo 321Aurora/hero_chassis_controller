@@ -6,21 +6,21 @@ controller:
       wheel_track: 0.4  # Placeholder value, replace with your actual wheel track
     pid_params:
       front_left_pid:
-        p: 1.0
-        i: 0.1
-        d: 0.01
+        p: 0.5
+        i: 0.05
+        d: 0.02
       front_right_pid:
-        p: 1.0
-        i: 0.1
-        d: 0.01
+        p: 0.5
+        i: 0.05
+        d: 0.02
       back_left_pid:
-        p: 1.0
-        i: 0.1
-        d: 0.01
+        p: 0.5
+        i: 0.05
+        d: 0.02
       back_right_pid:
-        p: 1.0
-        i: 0.1
-        d: 0.01
+        p: 0.5
+        i: 0.05
+        d: 0.02
     velocity_mode: "chassis"  # "chassis" or "global"
 
   joint_state_controller:

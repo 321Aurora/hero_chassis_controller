@@ -83,7 +83,7 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
   back_right_joint_.setCommand(back_right_effort);
 
   // Update odom
-  const double MIN_DELTA_TIME=2;
+  const double MIN_DELTA_TIME=0.01;
   double delta_time = (time - last_time_).toSec();
   if(delta_time>MIN_DELTA_TIME) {
       last_time_ = time;
@@ -98,8 +98,8 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
   // Create a quaternion representing the change in orientation
 
   tf::Quaternion delta_orientation;
-    delta_orientation.normalize();
     delta_orientation.setRPY(0, 0, angular_distance);
+    delta_orientation.normalize();
 
   // Update the pose
   pose_.position.x += (delta_x * std::cos(pose_.orientation.z) - delta_y * std::sin(pose_.orientation.z));
