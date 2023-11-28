@@ -55,7 +55,10 @@ public:
   geometry_msgs::Pose pose_;
 
   ros::Time last_time_;
+
 private:
+    tf::TransformListener tf_listener_;
+    geometry_msgs::TwistStamped cmd_vel_;
 };
 
 } // namespace hero_chassis_controller

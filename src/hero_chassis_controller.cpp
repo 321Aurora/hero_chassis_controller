@@ -126,10 +126,50 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
   odom_pub_.publish(odom_msg);
 }
 
-void HeroChassisController::cmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
-  linear_velocity_x_ = msg->linear.x;
-  angular_velocity_z_ = msg->angular.z;
-}
+    void HeroChassisController::cmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
+        // 将速度指令从世界坐标系（odom）变换到底盘坐标系
+        geometry_msgs::TwistStamped cmd_vel_world;
+        cmd_vel_world.header.stamp = ros::Time::now();
+        cmd_vel_world.header.frame_id = "odom";
+        cmd_vel_world.twist = *msg;
+
+        try {
+            tf_listener_.waitForTransform("base_link", "odom", ros::Time(0), ros::Duration(1.0));
+
+            // Transform linear velocity
+            geometry_msgs::Vector3Stamped cmd_linear;
+            cmd_linear.header.stamp = ros::Time(0);
+            cmd_linear.header.frame_id = "odom";
+            cmd_linear.vector.x = cmd_vel_world.twist.linear.x;
+            cmd_linear.vector.y = cmd_vel_world.twist.linear.y;
+            cmd_linear.vector.z = cmd_vel_world.twist.linear.z;
+            tf_listener_.transformVector("base_link", cmd_linear, cmd_linear);
+
+            // Transform angular velocity
+            geometry_msgs::Vector3Stamped cmd_angular;
+            cmd_angular.header.stamp = ros::Time(0);
+            cmd_angular.header.frame_id = "odom";
+            cmd_angular.vector.x = cmd_vel_world.twist.angular.x;
+            cmd_angular.vector.y = cmd_vel_world.twist.angular.y;
+            cmd_angular.vector.z = cmd_vel_world.twist.angular.z;
+            tf_listener_.transformVector("base_link", cmd_angular, cmd_angular);
+
+            cmd_vel_world.twist.linear.x = cmd_linear.vector.x;
+            cmd_vel_world.twist.linear.y = cmd_linear.vector.y;
+            cmd_vel_world.twist.linear.z = cmd_linear.vector.z;
+            cmd_vel_world.twist.angular.x = cmd_angular.vector.x;
+            cmd_vel_world.twist.angular.y = cmd_angular.vector.y;
+            cmd_vel_world.twist.angular.z = cmd_angular.vector.z;
+
+        } catch (tf::TransformException &ex) {
+            ROS_ERROR("将cmd_vel从odom变换到base_link时出错：%s", ex.what());
+            return;
+        }
+
+        linear_velocity_x_ = cmd_vel_world.twist.linear.x;
+        angular_velocity_z_ = cmd_vel_world.twist.angular.z;
+    }
+
 
 
 PLUGINLIB_EXPORT_CLASS(hero_chassis_controller::HeroChassisController, controller_interface::ControllerBase)
