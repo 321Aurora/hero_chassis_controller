@@ -82,9 +82,6 @@
   <depend>pluginlib</depend>
   <depend>rm_description</depend>
   
- 
-
-
   
   <export>
     <controller_interface plugin="${prefix}/hero_chassis_controller_plugins.xml"/>

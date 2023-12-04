@@ -77,7 +77,7 @@ include_directories(
 ## Declare cpp executables
  add_library(${PROJECT_NAME}
     src/${PROJECT_NAME}.cpp
-    )
+ )
 
 add_dependencies(${PROJECT_NAME}
     ${catkin_EXPORTED_TARGETS}
@@ -127,16 +127,8 @@ target_link_libraries(${PROJECT_NAME}
 
 ##########################
 ## Static code analysis ##
-##########################在 REQUIRED COMPONENTS 中，并且 catkin_package 函数中也有这个依赖项。如果没有，你可能需要添加它。
+##########################
 
-add_executable(pid_control ./src/pid_control.cpp)
-add_executable(MecanumWheelSpeedCalculator ./src/MecanumWheelSpeedCalculator.cpp)
-add_executable(OdometryPublisher ./src/OdometryPublisher.cpp)
-add_executable(VelocityTransformer ./src/VelocityTransformer.cpp)
-target_link_libraries(MecanumWheelSpeedCalculator ${catkin_LIBRARIES} )
-target_link_libraries(OdometryPublisher ${catkin_LIBRARIES} )
- target_link_libraries(VelocityTransformer ${catkin_LIBRARIES})
-target_link_libraries(pid_control ${catkin_LIBRARIES}  yaml-cpp)
 
 roslint_cpp()
 

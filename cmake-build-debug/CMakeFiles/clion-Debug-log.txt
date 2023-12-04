@@ -41,6 +41,6 @@ CMake Deprecation Warning at /usr/src/googletest/googletest/CMakeLists.txt:56 (c
 -- catkin 0.8.10
 -- BUILD_SHARED_LIBS is on
 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
--- Configuring done (1.0s)
--- Generating done (0.1s)
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
 -- Build files have been written to: /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug
