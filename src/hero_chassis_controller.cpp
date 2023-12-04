@@ -127,7 +127,7 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
 }
 
     void HeroChassisController::cmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) {
-        // 将速度指令从世界坐标系（odom）变换到底盘坐标系
+        // Convert the speed command from the world coordinate system (odom) to the chassis coordinate system
         geometry_msgs::TwistStamped cmd_vel_world;
         cmd_vel_world.header.stamp = ros::Time::now();
         cmd_vel_world.header.frame_id = "odom";
