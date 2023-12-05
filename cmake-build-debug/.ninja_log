@@ -1,6 +1,4 @@
 # ninja log v5
-0	1870	1700708833139693613	CMakeFiles/pid_control.dir/src/pid_control.cpp.o	95a8e97b33212394
-1871	2000	1700708833271691552	devel/lib/hero_chassis_controller/pid_control	30e7fccdd8145654
-1	553	1701680103080659880	build.ninja	1786449686b341f8
+1	553	1701683469135163165	build.ninja	1786449686b341f8
 1	2837	1701680105932469615	CMakeFiles/pid_control.dir/src/pid_control.cpp.o	519ed6901010a448
 2837	2928	1701680106024340816	devel/lib/hero_chassis_controller/pid_control	2808e63857c7c214

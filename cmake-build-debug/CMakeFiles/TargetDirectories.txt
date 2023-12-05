@@ -81,10 +81,6 @@
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/tf_generate_messages_nodejs.dir
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/tf_generate_messages_py.dir
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/hero_chassis_controller.dir
-/home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/pid_control.dir
-/home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/MecanumWheelSpeedCalculator.dir
-/home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/OdometryPublisher.dir
-/home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/VelocityTransformer.dir
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/roslint.dir
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/roslint_hero_chassis_controller.dir
 /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/test.dir

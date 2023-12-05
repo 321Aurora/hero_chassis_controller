@@ -28,7 +28,6 @@ public:
 
   void cmdVelCallback(const geometry_msgs::Twist::ConstPtr &msg) ;
 
-
   hardware_interface::JointHandle front_left_joint_;
   hardware_interface::JointHandle front_right_joint_;
   hardware_interface::JointHandle back_left_joint_;
@@ -62,7 +61,6 @@ private:
 };
 
 } // namespace hero_chassis_controller
-
 
 #endif   // HERO_CHASSIS_CONTROLLER_HERO_CHASSIS_CONTROLLER_H
 

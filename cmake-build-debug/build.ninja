@@ -568,142 +568,6 @@ build devel/lib/libhero_chassis_controller.so: CXX_SHARED_LIBRARY_LINKER__hero_c
   TARGET_FILE = devel/lib/libhero_chassis_controller.so
   TARGET_PDB = hero_chassis_controller.so.dbg
 
-# =============================================================================
-# Object build statements for EXECUTABLE target pid_control
-
-
-#############################################
-# Order-only phony target for pid_control
-
-build cmake_object_order_depends_target_pid_control: phony || CMakeFiles/pid_control.dir
-
-build CMakeFiles/pid_control.dir/src/pid_control.cpp.o: CXX_COMPILER__pid_control_unscanned_Debug /home/aurora/catkin_ws/src/hero_chassis_controller/src/pid_control.cpp || cmake_object_order_depends_target_pid_control
-  DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"hero_chassis_controller\"
-  DEP_FILE = CMakeFiles/pid_control.dir/src/pid_control.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always   -Wall -Werror
-  INCLUDES = -I/home/aurora/catkin_ws/src/hero_chassis_controller/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
-  OBJECT_DIR = CMakeFiles/pid_control.dir
-  OBJECT_FILE_DIR = CMakeFiles/pid_control.dir/src
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target pid_control
-
-
-#############################################
-# Link the executable devel/lib/hero_chassis_controller/pid_control
-
-build devel/lib/hero_chassis_controller/pid_control: CXX_EXECUTABLE_LINKER__pid_control_Debug CMakeFiles/pid_control.dir/src/pid_control.cpp.o | /opt/ros/noetic/lib/libcontrol_toolbox.so /usr/lib/x86_64-linux-gnu/libtinyxml.so /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so /opt/ros/noetic/lib/libcontroller_manager.so /opt/ros/noetic/lib/libjoint_state_controller.so /opt/ros/noetic/lib/librealtime_tools.so /opt/ros/noetic/lib/libclass_loader.so /usr/lib/x86_64-linux-gnu/libPocoFoundation.so /usr/lib/x86_64-linux-gnu/libdl.so /opt/ros/noetic/lib/libroslib.so /opt/ros/noetic/lib/librospack.so /usr/lib/x86_64-linux-gnu/libpython3.8.so /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0 /usr/lib/x86_64-linux-gnu/libtinyxml2.so /opt/ros/noetic/lib/libtf.so /opt/ros/noetic/lib/libtf2_ros.so /opt/ros/noetic/lib/libactionlib.so /opt/ros/noetic/lib/libmessage_filters.so /opt/ros/noetic/lib/libroscpp.so /usr/lib/x86_64-linux-gnu/libpthread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0 /opt/ros/noetic/lib/libxmlrpcpp.so /opt/ros/noetic/lib/libtf2.so /opt/ros/noetic/lib/libroscpp_serialization.so /opt/ros/noetic/lib/librosconsole.so /opt/ros/noetic/lib/librosconsole_log4cxx.so /opt/ros/noetic/lib/librosconsole_backend_interface.so /usr/lib/x86_64-linux-gnu/liblog4cxx.so /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0 /opt/ros/noetic/lib/librostime.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0 /opt/ros/noetic/lib/libcpp_common.so /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/opt/ros/noetic/lib  /opt/ros/noetic/lib/libcontrol_toolbox.so  /usr/lib/x86_64-linux-gnu/libtinyxml.so  /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so  /opt/ros/noetic/lib/libcontroller_manager.so  /opt/ros/noetic/lib/libjoint_state_controller.so  /opt/ros/noetic/lib/librealtime_tools.so  /opt/ros/noetic/lib/libclass_loader.so  /usr/lib/x86_64-linux-gnu/libPocoFoundation.so  /usr/lib/x86_64-linux-gnu/libdl.so  /opt/ros/noetic/lib/libroslib.so  /opt/ros/noetic/lib/librospack.so  /usr/lib/x86_64-linux-gnu/libpython3.8.so  /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0  /usr/lib/x86_64-linux-gnu/libtinyxml2.so  /opt/ros/noetic/lib/libtf.so  /opt/ros/noetic/lib/libtf2_ros.so  /opt/ros/noetic/lib/libactionlib.so  /opt/ros/noetic/lib/libmessage_filters.so  /opt/ros/noetic/lib/libroscpp.so  /usr/lib/x86_64-linux-gnu/libpthread.so  /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0  /opt/ros/noetic/lib/libxmlrpcpp.so  /opt/ros/noetic/lib/libtf2.so  /opt/ros/noetic/lib/libroscpp_serialization.so  /opt/ros/noetic/lib/librosconsole.so  /opt/ros/noetic/lib/librosconsole_log4cxx.so  /opt/ros/noetic/lib/librosconsole_backend_interface.so  /usr/lib/x86_64-linux-gnu/liblog4cxx.so  /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0  /opt/ros/noetic/lib/librostime.so  /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0  /opt/ros/noetic/lib/libcpp_common.so  /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0  /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4  -lyaml-cpp
-  OBJECT_DIR = CMakeFiles/pid_control.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = devel/lib/hero_chassis_controller/pid_control
-  TARGET_PDB = pid_control.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target MecanumWheelSpeedCalculator
-
-
-#############################################
-# Order-only phony target for MecanumWheelSpeedCalculator
-
-build cmake_object_order_depends_target_MecanumWheelSpeedCalculator: phony || CMakeFiles/MecanumWheelSpeedCalculator.dir
-
-build CMakeFiles/MecanumWheelSpeedCalculator.dir/src/MecanumWheelSpeedCalculator.cpp.o: CXX_COMPILER__MecanumWheelSpeedCalculator_unscanned_Debug /home/aurora/catkin_ws/src/hero_chassis_controller/src/MecanumWheelSpeedCalculator.cpp || cmake_object_order_depends_target_MecanumWheelSpeedCalculator
-  DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"hero_chassis_controller\"
-  DEP_FILE = CMakeFiles/MecanumWheelSpeedCalculator.dir/src/MecanumWheelSpeedCalculator.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always   -Wall -Werror
-  INCLUDES = -I/home/aurora/catkin_ws/src/hero_chassis_controller/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
-  OBJECT_DIR = CMakeFiles/MecanumWheelSpeedCalculator.dir
-  OBJECT_FILE_DIR = CMakeFiles/MecanumWheelSpeedCalculator.dir/src
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target MecanumWheelSpeedCalculator
-
-
-#############################################
-# Link the executable devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator
-
-build devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator: CXX_EXECUTABLE_LINKER__MecanumWheelSpeedCalculator_Debug CMakeFiles/MecanumWheelSpeedCalculator.dir/src/MecanumWheelSpeedCalculator.cpp.o | /opt/ros/noetic/lib/libcontrol_toolbox.so /usr/lib/x86_64-linux-gnu/libtinyxml.so /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so /opt/ros/noetic/lib/libcontroller_manager.so /opt/ros/noetic/lib/libjoint_state_controller.so /opt/ros/noetic/lib/librealtime_tools.so /opt/ros/noetic/lib/libclass_loader.so /usr/lib/x86_64-linux-gnu/libPocoFoundation.so /usr/lib/x86_64-linux-gnu/libdl.so /opt/ros/noetic/lib/libroslib.so /opt/ros/noetic/lib/librospack.so /usr/lib/x86_64-linux-gnu/libpython3.8.so /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0 /usr/lib/x86_64-linux-gnu/libtinyxml2.so /opt/ros/noetic/lib/libtf.so /opt/ros/noetic/lib/libtf2_ros.so /opt/ros/noetic/lib/libactionlib.so /opt/ros/noetic/lib/libmessage_filters.so /opt/ros/noetic/lib/libroscpp.so /usr/lib/x86_64-linux-gnu/libpthread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0 /opt/ros/noetic/lib/libxmlrpcpp.so /opt/ros/noetic/lib/libtf2.so /opt/ros/noetic/lib/libroscpp_serialization.so /opt/ros/noetic/lib/librosconsole.so /opt/ros/noetic/lib/librosconsole_log4cxx.so /opt/ros/noetic/lib/librosconsole_backend_interface.so /usr/lib/x86_64-linux-gnu/liblog4cxx.so /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0 /opt/ros/noetic/lib/librostime.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0 /opt/ros/noetic/lib/libcpp_common.so /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/opt/ros/noetic/lib  /opt/ros/noetic/lib/libcontrol_toolbox.so  /usr/lib/x86_64-linux-gnu/libtinyxml.so  /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so  /opt/ros/noetic/lib/libcontroller_manager.so  /opt/ros/noetic/lib/libjoint_state_controller.so  /opt/ros/noetic/lib/librealtime_tools.so  /opt/ros/noetic/lib/libclass_loader.so  /usr/lib/x86_64-linux-gnu/libPocoFoundation.so  /usr/lib/x86_64-linux-gnu/libdl.so  /opt/ros/noetic/lib/libroslib.so  /opt/ros/noetic/lib/librospack.so  /usr/lib/x86_64-linux-gnu/libpython3.8.so  /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0  /usr/lib/x86_64-linux-gnu/libtinyxml2.so  /opt/ros/noetic/lib/libtf.so  /opt/ros/noetic/lib/libtf2_ros.so  /opt/ros/noetic/lib/libactionlib.so  /opt/ros/noetic/lib/libmessage_filters.so  /opt/ros/noetic/lib/libroscpp.so  /usr/lib/x86_64-linux-gnu/libpthread.so  /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0  /opt/ros/noetic/lib/libxmlrpcpp.so  /opt/ros/noetic/lib/libtf2.so  /opt/ros/noetic/lib/libroscpp_serialization.so  /opt/ros/noetic/lib/librosconsole.so  /opt/ros/noetic/lib/librosconsole_log4cxx.so  /opt/ros/noetic/lib/librosconsole_backend_interface.so  /usr/lib/x86_64-linux-gnu/liblog4cxx.so  /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0  /opt/ros/noetic/lib/librostime.so  /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0  /opt/ros/noetic/lib/libcpp_common.so  /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0  /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  OBJECT_DIR = CMakeFiles/MecanumWheelSpeedCalculator.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator
-  TARGET_PDB = MecanumWheelSpeedCalculator.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target OdometryPublisher
-
-
-#############################################
-# Order-only phony target for OdometryPublisher
-
-build cmake_object_order_depends_target_OdometryPublisher: phony || CMakeFiles/OdometryPublisher.dir
-
-build CMakeFiles/OdometryPublisher.dir/src/OdometryPublisher.cpp.o: CXX_COMPILER__OdometryPublisher_unscanned_Debug /home/aurora/catkin_ws/src/hero_chassis_controller/src/OdometryPublisher.cpp || cmake_object_order_depends_target_OdometryPublisher
-  DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"hero_chassis_controller\"
-  DEP_FILE = CMakeFiles/OdometryPublisher.dir/src/OdometryPublisher.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always   -Wall -Werror
-  INCLUDES = -I/home/aurora/catkin_ws/src/hero_chassis_controller/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
-  OBJECT_DIR = CMakeFiles/OdometryPublisher.dir
-  OBJECT_FILE_DIR = CMakeFiles/OdometryPublisher.dir/src
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target OdometryPublisher
-
-
-#############################################
-# Link the executable devel/lib/hero_chassis_controller/OdometryPublisher
-
-build devel/lib/hero_chassis_controller/OdometryPublisher: CXX_EXECUTABLE_LINKER__OdometryPublisher_Debug CMakeFiles/OdometryPublisher.dir/src/OdometryPublisher.cpp.o | /opt/ros/noetic/lib/libcontrol_toolbox.so /usr/lib/x86_64-linux-gnu/libtinyxml.so /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so /opt/ros/noetic/lib/libcontroller_manager.so /opt/ros/noetic/lib/libjoint_state_controller.so /opt/ros/noetic/lib/librealtime_tools.so /opt/ros/noetic/lib/libclass_loader.so /usr/lib/x86_64-linux-gnu/libPocoFoundation.so /usr/lib/x86_64-linux-gnu/libdl.so /opt/ros/noetic/lib/libroslib.so /opt/ros/noetic/lib/librospack.so /usr/lib/x86_64-linux-gnu/libpython3.8.so /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0 /usr/lib/x86_64-linux-gnu/libtinyxml2.so /opt/ros/noetic/lib/libtf.so /opt/ros/noetic/lib/libtf2_ros.so /opt/ros/noetic/lib/libactionlib.so /opt/ros/noetic/lib/libmessage_filters.so /opt/ros/noetic/lib/libroscpp.so /usr/lib/x86_64-linux-gnu/libpthread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0 /opt/ros/noetic/lib/libxmlrpcpp.so /opt/ros/noetic/lib/libtf2.so /opt/ros/noetic/lib/libroscpp_serialization.so /opt/ros/noetic/lib/librosconsole.so /opt/ros/noetic/lib/librosconsole_log4cxx.so /opt/ros/noetic/lib/librosconsole_backend_interface.so /usr/lib/x86_64-linux-gnu/liblog4cxx.so /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0 /opt/ros/noetic/lib/librostime.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0 /opt/ros/noetic/lib/libcpp_common.so /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/opt/ros/noetic/lib  /opt/ros/noetic/lib/libcontrol_toolbox.so  /usr/lib/x86_64-linux-gnu/libtinyxml.so  /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so  /opt/ros/noetic/lib/libcontroller_manager.so  /opt/ros/noetic/lib/libjoint_state_controller.so  /opt/ros/noetic/lib/librealtime_tools.so  /opt/ros/noetic/lib/libclass_loader.so  /usr/lib/x86_64-linux-gnu/libPocoFoundation.so  /usr/lib/x86_64-linux-gnu/libdl.so  /opt/ros/noetic/lib/libroslib.so  /opt/ros/noetic/lib/librospack.so  /usr/lib/x86_64-linux-gnu/libpython3.8.so  /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0  /usr/lib/x86_64-linux-gnu/libtinyxml2.so  /opt/ros/noetic/lib/libtf.so  /opt/ros/noetic/lib/libtf2_ros.so  /opt/ros/noetic/lib/libactionlib.so  /opt/ros/noetic/lib/libmessage_filters.so  /opt/ros/noetic/lib/libroscpp.so  /usr/lib/x86_64-linux-gnu/libpthread.so  /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0  /opt/ros/noetic/lib/libxmlrpcpp.so  /opt/ros/noetic/lib/libtf2.so  /opt/ros/noetic/lib/libroscpp_serialization.so  /opt/ros/noetic/lib/librosconsole.so  /opt/ros/noetic/lib/librosconsole_log4cxx.so  /opt/ros/noetic/lib/librosconsole_backend_interface.so  /usr/lib/x86_64-linux-gnu/liblog4cxx.so  /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0  /opt/ros/noetic/lib/librostime.so  /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0  /opt/ros/noetic/lib/libcpp_common.so  /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0  /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  OBJECT_DIR = CMakeFiles/OdometryPublisher.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = devel/lib/hero_chassis_controller/OdometryPublisher
-  TARGET_PDB = OdometryPublisher.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target VelocityTransformer
-
-
-#############################################
-# Order-only phony target for VelocityTransformer
-
-build cmake_object_order_depends_target_VelocityTransformer: phony || CMakeFiles/VelocityTransformer.dir
-
-build CMakeFiles/VelocityTransformer.dir/src/VelocityTransformer.cpp.o: CXX_COMPILER__VelocityTransformer_unscanned_Debug /home/aurora/catkin_ws/src/hero_chassis_controller/src/VelocityTransformer.cpp || cmake_object_order_depends_target_VelocityTransformer
-  DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"hero_chassis_controller\"
-  DEP_FILE = CMakeFiles/VelocityTransformer.dir/src/VelocityTransformer.cpp.o.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always   -Wall -Werror
-  INCLUDES = -I/home/aurora/catkin_ws/src/hero_chassis_controller/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp
-  OBJECT_DIR = CMakeFiles/VelocityTransformer.dir
-  OBJECT_FILE_DIR = CMakeFiles/VelocityTransformer.dir/src
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target VelocityTransformer
-
-
-#############################################
-# Link the executable devel/lib/hero_chassis_controller/VelocityTransformer
-
-build devel/lib/hero_chassis_controller/VelocityTransformer: CXX_EXECUTABLE_LINKER__VelocityTransformer_Debug CMakeFiles/VelocityTransformer.dir/src/VelocityTransformer.cpp.o | /opt/ros/noetic/lib/libcontrol_toolbox.so /usr/lib/x86_64-linux-gnu/libtinyxml.so /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so /opt/ros/noetic/lib/libcontroller_manager.so /opt/ros/noetic/lib/libjoint_state_controller.so /opt/ros/noetic/lib/librealtime_tools.so /opt/ros/noetic/lib/libclass_loader.so /usr/lib/x86_64-linux-gnu/libPocoFoundation.so /usr/lib/x86_64-linux-gnu/libdl.so /opt/ros/noetic/lib/libroslib.so /opt/ros/noetic/lib/librospack.so /usr/lib/x86_64-linux-gnu/libpython3.8.so /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0 /usr/lib/x86_64-linux-gnu/libtinyxml2.so /opt/ros/noetic/lib/libtf.so /opt/ros/noetic/lib/libtf2_ros.so /opt/ros/noetic/lib/libactionlib.so /opt/ros/noetic/lib/libmessage_filters.so /opt/ros/noetic/lib/libroscpp.so /usr/lib/x86_64-linux-gnu/libpthread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0 /opt/ros/noetic/lib/libxmlrpcpp.so /opt/ros/noetic/lib/libtf2.so /opt/ros/noetic/lib/libroscpp_serialization.so /opt/ros/noetic/lib/librosconsole.so /opt/ros/noetic/lib/librosconsole_log4cxx.so /opt/ros/noetic/lib/librosconsole_backend_interface.so /usr/lib/x86_64-linux-gnu/liblog4cxx.so /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0 /opt/ros/noetic/lib/librostime.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0 /opt/ros/noetic/lib/libcpp_common.so /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0 /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0 /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/opt/ros/noetic/lib  /opt/ros/noetic/lib/libcontrol_toolbox.so  /usr/lib/x86_64-linux-gnu/libtinyxml.so  /opt/ros/noetic/lib/libdynamic_reconfigure_config_init_mutex.so  /opt/ros/noetic/lib/libcontroller_manager.so  /opt/ros/noetic/lib/libjoint_state_controller.so  /opt/ros/noetic/lib/librealtime_tools.so  /opt/ros/noetic/lib/libclass_loader.so  /usr/lib/x86_64-linux-gnu/libPocoFoundation.so  /usr/lib/x86_64-linux-gnu/libdl.so  /opt/ros/noetic/lib/libroslib.so  /opt/ros/noetic/lib/librospack.so  /usr/lib/x86_64-linux-gnu/libpython3.8.so  /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0  /usr/lib/x86_64-linux-gnu/libtinyxml2.so  /opt/ros/noetic/lib/libtf.so  /opt/ros/noetic/lib/libtf2_ros.so  /opt/ros/noetic/lib/libactionlib.so  /opt/ros/noetic/lib/libmessage_filters.so  /opt/ros/noetic/lib/libroscpp.so  /usr/lib/x86_64-linux-gnu/libpthread.so  /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0  /opt/ros/noetic/lib/libxmlrpcpp.so  /opt/ros/noetic/lib/libtf2.so  /opt/ros/noetic/lib/libroscpp_serialization.so  /opt/ros/noetic/lib/librosconsole.so  /opt/ros/noetic/lib/librosconsole_log4cxx.so  /opt/ros/noetic/lib/librosconsole_backend_interface.so  /usr/lib/x86_64-linux-gnu/liblog4cxx.so  /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0  /opt/ros/noetic/lib/librostime.so  /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0  /opt/ros/noetic/lib/libcpp_common.so  /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0  /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0  /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-  OBJECT_DIR = CMakeFiles/VelocityTransformer.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = devel/lib/hero_chassis_controller/VelocityTransformer
-  TARGET_PDB = VelocityTransformer.dbg
-
 
 #############################################
 # Utility command for roslint
@@ -715,7 +579,7 @@ build roslint: phony roslint_hero_chassis_controller
 # Utility command for roslint_hero_chassis_controller
 
 build CMakeFiles/roslint_hero_chassis_controller.util: CUSTOM_COMMAND
-  COMMAND = cd /home/aurora/catkin_ws/src/hero_chassis_controller && /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python3 -m roslint.cpplint_wrapper /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/hero_chassis_controller.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/mecanum_wheel_speed_calculator_controller.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/mecanum_wheel_speed_calculator_interface.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/odometry_publisher_controller.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/odometry_publisher_interface.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/velocity_transformer_controller.h /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/velocity_transformer_interface.h /home/aurora/catkin_ws/src/hero_chassis_controller/src/MecanumWheelSpeedCalculator.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/src/OdometryPublisher.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/src/VelocityTransformer.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/src/hero_chassis_controller.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/src/main.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/src/pid_control.cpp
+  COMMAND = cd /home/aurora/catkin_ws/src/hero_chassis_controller && /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/catkin_generated/env_cached.sh /usr/bin/python3 -m roslint.cpplint_wrapper /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.cpp /home/aurora/catkin_ws/src/hero_chassis_controller/include/hero_chassis_controller/hero_chassis_controller.h /home/aurora/catkin_ws/src/hero_chassis_controller/src/hero_chassis_controller.cpp
   DESC = Running utility command for roslint_hero_chassis_controller
   restat = 1
 
@@ -1198,12 +1062,6 @@ build gtest/googletest/install/strip: phony gtest/googletest/CMakeFiles/install/
 # =============================================================================
 # Target aliases.
 
-build MecanumWheelSpeedCalculator: phony devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator
-
-build OdometryPublisher: phony devel/lib/hero_chassis_controller/OdometryPublisher
-
-build VelocityTransformer: phony devel/lib/hero_chassis_controller/VelocityTransformer
-
 build gmock: phony gtest/lib/libgmockd.so
 
 build gmock_main: phony gtest/lib/libgmock_maind.so
@@ -1224,8 +1082,6 @@ build libgtestd.so: phony gtest/lib/libgtestd.so
 
 build libhero_chassis_controller.so: phony devel/lib/libhero_chassis_controller.so
 
-build pid_control: phony devel/lib/hero_chassis_controller/pid_control
-
 # =============================================================================
 # Folder targets.
 
@@ -1234,7 +1090,7 @@ build pid_control: phony devel/lib/hero_chassis_controller/pid_control
 #############################################
 # Folder: /home/aurora/catkin_ws/src/hero_chassis_controller/cmake-build-debug
 
-build all: phony devel/lib/libhero_chassis_controller.so devel/lib/hero_chassis_controller/pid_control devel/lib/hero_chassis_controller/MecanumWheelSpeedCalculator devel/lib/hero_chassis_controller/OdometryPublisher devel/lib/hero_chassis_controller/VelocityTransformer gtest/all
+build all: phony devel/lib/libhero_chassis_controller.so gtest/all
 
 # =============================================================================
 

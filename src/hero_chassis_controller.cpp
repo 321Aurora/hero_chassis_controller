@@ -65,10 +65,14 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
   }
 
   // Calculate wheel velocities using inverse kinematics
-  double front_left_velocity = (chassis_velocity_ - angular_velocity_z_ * wheel_track_ / 2) / wheel_base_;
-  double front_right_velocity = (chassis_velocity_ + angular_velocity_z_ * wheel_track_ / 2) / wheel_base_;
-  double back_left_velocity = front_left_velocity;
-  double back_right_velocity = front_right_velocity;
+  double vx = chassis_velocity_;
+  double vy = 0.0;  // Assuming no lateral motion for simplicity
+  double omega = angular_velocity_z_;
+  double d = wheel_base_ / 2.0 + wheel_track_ / 2.0;
+  double front_left_velocity = vx + vy - d * omega;
+  double front_right_velocity = vx - vy + d * omega;
+  double back_left_velocity = vx - vy - d * omega;
+  double back_right_velocity = vx + vy + d * omega;
 
   // Compute PID control effort for each wheel
   double front_left_effort = pid_front_left_.computeCommand(front_left_velocity, period);
@@ -96,7 +100,6 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
   double delta_y = linear_distance * std::sin(angular_distance / 2.0);
 
   // Create a quaternion representing the change in orientation
-
   tf::Quaternion delta_orientation;
     delta_orientation.setRPY(0, 0, angular_distance);
     delta_orientation.normalize();
@@ -169,8 +172,6 @@ void HeroChassisController::update(const ros::Time &time, const ros::Duration &p
         linear_velocity_x_ = cmd_vel_world.twist.linear.x;
         angular_velocity_z_ = cmd_vel_world.twist.angular.z;
     }
-
-
 
 PLUGINLIB_EXPORT_CLASS(hero_chassis_controller::HeroChassisController, controller_interface::ControllerBase)
 }  // namespace hero_chassis_controller
